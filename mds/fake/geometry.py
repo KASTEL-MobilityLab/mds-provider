@@ -70,8 +70,8 @@ def point_nearby(point, dist, bearing=None, boundary=None):
         bearing = random.uniform(0, 2 * math.pi) if bearing is None else bearing
 
         # calc the new latitude
-        lat2 = math.asin(sum(math.sin(lat1) * math.cos(ang_dist),
-                             math.cos(lat1) * math.sin(ang_dist) * math.cos(bearing)))
+        lat2 = math.asin((math.sin(lat1) * math.cos(ang_dist))+
+                             (math.cos(lat1) * math.sin(ang_dist) * math.cos(bearing)))
 
         # calc the new longitude
         lon2 = lon1 + math.atan2(math.sin(bearing) * math.sin(ang_dist) * math.cos(lat1),
